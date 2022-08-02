@@ -2,6 +2,7 @@
   "name": "vite-javascript-starter",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +11,7 @@
   "dependencies": {
     "@thirdweb-dev/react": "2.4.1",
     "@thirdweb-dev/sdk": "^2.3.8",
+    "dotenv": "^16.0.1",
     "ethers": "^5.6.8",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

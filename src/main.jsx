@@ -1,17 +1,22 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import './index.css';
 import App from "./App";
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mainnet;
+// Importe o ThirdWeb
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(
+// Inclua que redes você quer dar suporte.
+// 4 = Rinkeby.
+const activeChainId = ChainId.Rinkeby;
+
+// Por último, envolva o App com o thirdweb provider.
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThirdwebProvider desiredChainId={activeChainId}>
       <App />
     </ThirdwebProvider>
   </React.StrictMode>
 );
+
+
