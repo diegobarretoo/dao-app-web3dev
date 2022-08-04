@@ -1,4 +1,4 @@
-// import { ChainId } from "@thirdweb--dev/sdk";
+// import { ChainId } from "@thirdweb-dev/sdk";
 // const rede = ChainId.Rinkeby;
 
 const rede = 4;

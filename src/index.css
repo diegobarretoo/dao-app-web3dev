@@ -1,7 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   margin: 0;
-  font-family: Inter, sans-serif;
+  /* font-family: Inter, sans-serif;
+  font-family: 'IBM Plex Mono', monospace; */
+  font-family: 'Chakra Petch', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #1f1a35;
@@ -14,12 +21,57 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 3rem;
   }
+}
+
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/nasa3.jpg');
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* animation: bg-main 7s ease-in 0s 1 reverse forwards; */
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(6, 17, 36);
+  /* background-image: url('assets/nasa.jpg');
+  background-size: cover; */
+  box-shadow: 0 40px 4px 0 rgb(0 0 0 / 25%);
+  opacity: 0.7;
+}
+
+.logo {
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo > svg {
+  margin-right: .5rem;
+}
+
+svg path{
+  fill: rgb(47, 180, 189);;
 }
 
 .unsupported-network {
@@ -42,6 +94,30 @@ h1 {
   background-color: #f00;
 }
 
+.wrap-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 10;
+}
+
+.wrap-page > .container {
+  width: 100%;
+  /* background-color: #120f1e; */
+  position: absolute;
+}
+
+.header {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+}
+
 .landing,
 .connect-wallet,
 .mint-nft,
@@ -55,6 +131,24 @@ h1 {
   align-content: center;
   display: flex;
   text-align: center;
+}
+
+.landing > h1 {
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: main 1s ease 0s 1 normal forwards;
+}
+
+.landing > p {
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: main 1s ease .1s 1 normal forwards;
+}
+
+.wrap-btn {
+  opacity: 0;
+  animation: main 1s ease .2s 1 normal forwards;
 }
 
 .member-page > div {
@@ -114,7 +208,7 @@ h1 {
   box-shadow: 3.1px 6.2px 6.2px hsl(0deg 0% 0% / 0.4);
 }
 
-button {
+/* button {
   cursor: pointer;
   background-color: #000;
   color: #fff;
@@ -125,17 +219,70 @@ button {
   text-transform: uppercase;
   border-radius: 3rem;
   font-size: 1.2rem;
+} */
+
+button.btn-main, a.btn-main {
+  margin-right: 18px;
+  padding: 0px 32px;
+  outline: none;
+  border: solid 2px transparent;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: rgb(47, 180, 189);
+  color: #fff;
+  padding: 1.2rem 1.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s;
 }
 
-button:hover {
-  background-color: #121212;
+button.btn-main.style2, a.btn-main.style2 {
+  margin-right: 0px;
+  background-color: transparent;
+  border: solid 2px rgb(47, 180, 189);
 }
 
-button:focus {
-  background-color: #222;
+.header > a {
+  padding: .8rem 2rem;
+
 }
 
-button:disabled {
+button:hover, a:hover {
+  background-color: transparent;
+  border: solid 2px rgb(255, 255, 255) !important;
+}
+
+button:focus, a:focus {
+  background-color: rgb(27, 131, 138);
+}
+
+button:disabled, a:disabled {
   opacity: 0.8;
   pointer-events: none;
+}
+
+@keyframes main {
+  0% {
+		opacity: 0;
+		transform: translateY(150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes bg-main {
+	0% {
+		/* background-position: right top; */
+		background-size: 100%;
+	}
+
+	100% {
+		/* background-position: right top; */
+		background-size: 150%;
+	}
 }
