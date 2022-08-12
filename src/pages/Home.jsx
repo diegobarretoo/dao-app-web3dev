@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Home({ connectWithMetamask, address, hasClaimedNFT }) {
@@ -13,7 +13,7 @@ export function Home({ connectWithMetamask, address, hasClaimedNFT }) {
         
     // },[address, hasClaimedNFT])
 
-    console.log('home')
+    console.log('home', address)
     
     return (
         <div className="landing">
@@ -26,7 +26,7 @@ export function Home({ connectWithMetamask, address, hasClaimedNFT }) {
                     onClick={ async () => {
                         const res = await connectWithMetamask()
                         if (!res.error) {
-                            console.log('ACEITO')
+                            console.log('ACEITO', res)
                             // navigate('/mint')
                         } else {
                             console.log('RECUSADO')

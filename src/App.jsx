@@ -128,19 +128,6 @@ const App = () => {
     }()
   }, [address, editionDrop])
 
-  // Verifica rede conectada
-  if (address && (network?.[0].data.chain.id !== rede)) {
-    return (
-      <div className="unsupported-network">
-        <h2>Por favor, conecte-se à rede Rinkeby</h2>
-        <p>
-          Essa dapp só funciona com a rede Rinkeby, por favor 
-          troque de rede na sua carteira.
-        </p>
-      </div>
-    );
-  }
-
   const pull_data = (data) => {
     setHasClaimedNFT(data);
   }
@@ -148,9 +135,11 @@ const App = () => {
   console.log(address)
   // console.log(address, isLoading, hasClaimedNFT)
 
+  const isRinkebyNetwork = address && (network?.[0].data.chain.id !== rede)
+
   const elementVariable = useRef(null)
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && !isRinkebyNetwork) {
       // console.log(elementVariable.current.children[1])
       if (!elementVariable.current.children[1]) {
         navigate('/')
@@ -179,6 +168,20 @@ const App = () => {
         <div className="preloader"></div>
       </div>
     )    
+  }
+
+  // Verifica rede conectada
+  //  if (address && (network?.[0].data.chain.id !== rede)) {
+   if (isRinkebyNetwork) {
+    return (
+      <div className="unsupported-network">
+        <h2>Por favor, conecte-se à rede Rinkeby</h2>
+        <p>
+          Essa dapp só funciona com a rede Rinkeby, por favor 
+          troque de rede na sua carteira.
+        </p>
+      </div>
+    );
   }
 
   return (
