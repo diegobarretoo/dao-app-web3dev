@@ -3,6 +3,6 @@
 
 const rede = 4;
 
-console.log(rede)
+// console.log(rede)
 
 export default rede;
